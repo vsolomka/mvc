@@ -1,0 +1,17 @@
+{
+    "name": "vsolomka/mvc",
+    "type": "project",
+    "description": "MVC PHP Project",
+    "license": "MIT",
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Core\\": "core/"
+        }
+    }
+}
