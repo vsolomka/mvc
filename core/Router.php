@@ -3,12 +3,25 @@ namespace Core;
 
 class Router
 {
-    private $prop1 = 16;
-    protected $prop2 = 17;
-    public $prop3 = 18;
+    private $routingMap;
+    private $requestPath;
+
+    public function __construct()
+    {
+        $this->routingMap = include_once("../app/config/routingMap.php");
+        $this->requestPath = $_SERVER["PATH_INFO"] ?? "/";
+    }
 
     public function run()
     {
-        var_export(get_object_vars($this));
+        $classNamespace = '\\App\\Controllers\\';
+        if (isset($this->routingMap[$this->requestPath])) {
+            $classNamespace .= $this->routingMap[$this->requestPath];
+        } else {
+            $classNamespace .= "Page404";
+        }
+        $classNamespace .= 'Controller';
+        
+        $classObj = new $classNamespace();
     }
 }
