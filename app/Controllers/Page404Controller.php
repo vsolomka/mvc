@@ -1,7 +1,7 @@
 <?php
 namespace App\Controllers;
 
-class Page404
+class Page404Controller
 {
     public function __construct()
     {

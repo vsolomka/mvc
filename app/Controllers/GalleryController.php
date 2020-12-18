@@ -1,10 +1,10 @@
 <?php
 namespace App\Controllers;
 
-class Index
+class GalleryController
 {
     public function __construct()
     {
-        echo "I am [Index] controller";
+        echo "Hi from [Gallery] controller";
     }
 }

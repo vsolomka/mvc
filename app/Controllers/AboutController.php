@@ -1,10 +1,10 @@
 <?php
 namespace App\Controllers;
 
-class Gallery
+class AboutController
 {
     public function __construct()
     {
-        echo "Hi from [Gallery] controller";
+        echo "I can tell you [About] us";
     }
 }

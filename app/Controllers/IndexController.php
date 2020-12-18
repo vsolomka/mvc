@@ -1,10 +1,10 @@
 <?php
 namespace App\Controllers;
 
-class About
+class IndexController
 {
     public function __construct()
     {
-        echo "I can tell you [About] us";
+        echo "I am [Index] controller";
     }
 }

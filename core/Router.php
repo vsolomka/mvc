@@ -20,6 +20,8 @@ class Router
         } else {
             $classNamespace .= "Page404";
         }
+        $classNamespace .= 'Controller';
+        
         $classObj = new $classNamespace();
     }
 }
