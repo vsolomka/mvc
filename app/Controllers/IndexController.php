@@ -1,10 +1,10 @@
 <?php
 namespace App\Controllers;
 
-class IndexController
+class IndexController extends Controller
 {
     public function __construct()
     {
-        echo "I am [Index] controller";
+        $this->generate('Home', 'Home');
     }
 }

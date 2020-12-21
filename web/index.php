@@ -1,8 +1,7 @@
-<pre>
 <?php
 
 require "../vendor/autoload.php";
-use Core\Router as Router;
+use Core\Router;
 
 $r = new Router();
 $r->run();

@@ -1,10 +1,10 @@
 <?php
 namespace App\Controllers;
 
-class AboutController
+class AboutController extends Controller
 {
     public function __construct()
     {
-        echo "I can tell you [About] us";
+        $this->generate('Home', 'About');
     }
 }
