@@ -1,0 +1,1 @@
+<h1>Admin actions</h1>
