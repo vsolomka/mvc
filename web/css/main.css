@@ -1,5 +1,10 @@
 body {
     font-family: Sans-serif;
+    background: silver;
+}
+nav {
+    display: flex;
+    justify-content: space-between;
 }
 nav ul {
     padding: 0; margin: 0;
@@ -8,9 +13,9 @@ nav ul {
     list-style: none;
 }
 nav li {
-    padding: 0;
+    padding: 0 3em;
     margin: .5em;
-    background: silver;
+    background: grey;
     border-radius: .3em;
     font-variant: small-caps;
 }
@@ -20,10 +25,10 @@ nav a {
     text-decoration: none;
     font-weight: bold;
     color: white;
-    transition: all .4s;
+    transition: all .3s;
 }
 nav a:hover {
     color: black;
     font-weight: bold;
-    transform: scale(1.1);
+    transform: rotate(9deg);
 }

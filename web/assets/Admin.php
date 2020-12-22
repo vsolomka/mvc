@@ -9,8 +9,9 @@
 <body>
 
 <nav>
+<a href="/">/</a>
 <ul class="menu">
-    <li><a href="/admin">/</a></li>
+    <li><a href="/admin">Home</a></li>
     <li><a href="/admin/actions">Actions</a></li>
     <li><a href="/admin/settings">Settings</a></li>
 </ul>

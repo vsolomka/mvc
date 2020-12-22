@@ -14,6 +14,7 @@
     <li><a href="/about">About</a></li>
     <li><a href="/gallery">Gallery</a></li>
 </ul>
+<a href="/admin">/admin</a>
 </nav>
 
 <?php
