@@ -5,7 +5,7 @@ use App\Models\Users;
 
 class IndexController extends Controller
 {
-    public function __construct()
+    public function process()
     {
         $obj = new Users();
         $data = $obj->getUser();

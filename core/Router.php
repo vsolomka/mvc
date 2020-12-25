@@ -23,5 +23,6 @@ class Router
         $classNamespace .= 'Controller';
         
         $classObj = new $classNamespace();
+        $classObj->process();
     }
 }

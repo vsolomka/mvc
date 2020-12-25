@@ -5,7 +5,7 @@ use App\Models\Gallery;
 
 class GalleryController extends Controller
 {
-    public function __construct()
+    public function process()
     {
         $obj = new Gallery();
         $data = $obj->getImages();

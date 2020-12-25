@@ -5,8 +5,10 @@ use App\Models\UserPermissions;
 
 class SettingsController extends Controller
 {
-    public function __construct()
+    public function process()
     {
-        $this->generate('Admin', 'Settings', (new UserPermissions())->getPermissions());
+        $obj = new UserPermissions();
+        $data = $obj->getPermissions();
+        $this->generate('Admin', 'Settings', $data);
     }
 }

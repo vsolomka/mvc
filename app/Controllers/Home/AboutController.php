@@ -5,7 +5,7 @@ use App\Models\About;
 
 class AboutController extends Controller
 {
-    public function __construct()
+    public function process()
     {
         $obj = new About();
         $data = $obj->getInfo();
