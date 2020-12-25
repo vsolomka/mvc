@@ -3,15 +3,18 @@ namespace App\Models;
 
 class About
 {
-    private $test = [1, 3, 12];
+    private $info = [
+        "This is MVC project",
+        "It is written during the couse \"PHP basics\"",
+        "Hillel IT school, Dnipro"
+    ];
 
-    public function getTest()
+    public function getInfo()
     {
-        return $this->test;
+        return $this->info;
     }
-    public function setTest($value)
+    public function setInfo($value)
     {
-        $this->test = $value;
+        $this->info = $value;
     }
-
 }

@@ -4,7 +4,7 @@ use App\Controllers\Controller;
 
 class IndexController extends Controller
 {
-    public function __construct()
+    public function process()
     {
         $this->generate('Admin', 'Home');
     }

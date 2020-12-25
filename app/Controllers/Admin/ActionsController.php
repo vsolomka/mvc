@@ -4,7 +4,7 @@ use App\Controllers\Controller;
 
 class ActionsController extends Controller
 {
-    public function __construct()
+    public function process()
     {
         $this->generate('Admin', 'Actions');
     }

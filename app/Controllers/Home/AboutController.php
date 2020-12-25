@@ -5,10 +5,10 @@ use App\Models\About;
 
 class AboutController extends Controller
 {
-    public function __construct()
+    public function process()
     {
         $obj = new About();
-        $data = $obj->getTest();
+        $data = $obj->getInfo();
 
         $this->generate('Home', 'About', $data);
     }

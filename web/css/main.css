@@ -2,6 +2,13 @@ body {
     font-family: Sans-serif;
     background: silver;
 }
+img {
+    margin: 1em;
+    padding: .5em;
+    border: thin solid grey;
+    background: white;
+    box-shadow: 2px 2px 5px white;
+}
 nav {
     display: flex;
     justify-content: space-between;
@@ -31,4 +38,16 @@ nav a:hover {
     color: black;
     font-weight: bold;
     transform: rotate(9deg);
+}
+.permission {
+    padding: 1em;
+    font-weight: bold;
+}
+.green {
+    background: green;
+    color: white;
+}
+.red {
+    color: red;
+    text-decoration: line-through;
 }
