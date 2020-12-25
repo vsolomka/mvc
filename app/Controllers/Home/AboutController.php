@@ -8,7 +8,7 @@ class AboutController extends Controller
     public function __construct()
     {
         $obj = new About();
-        $data = $obj->getTest();
+        $data = $obj->getInfo();
 
         $this->generate('Home', 'About', $data);
     }
