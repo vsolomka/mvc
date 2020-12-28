@@ -37,7 +37,7 @@ class Connector
 
         $dns = $this->config["dbDriver"] . ":host=" . $this->config["dbHost"] . ";dbname=" . $this->config["dbName"];
 
-        return new PDO(
+        return new \PDO(
             $dns,
             $this->config["dbUser"],
             $this->config["dbPswd"]
