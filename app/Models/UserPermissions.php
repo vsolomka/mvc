@@ -1,5 +1,6 @@
 <?php
 namespace App\Models;
+use Components\Orm\Select;
 
 class UserPermissions
 {
@@ -11,7 +12,11 @@ class UserPermissions
 
     public function getPermissions()
     {
-        return $this->permissions;
+        $data = new Select();
+        $data->from("user_permission");
+        $data->columns("*");
+        return $data->execute();
+        // return $this->permissions;
     }
     public function setPermissions($value)
     {
