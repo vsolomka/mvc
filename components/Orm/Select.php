@@ -7,7 +7,8 @@ class Select
     protected $columns = "*";
     protected $orderBy = "";
     protected $groupBy = "";
-    protected $limit = "";
+    protected $limit = 0;
+    protected $offset = 0;
     protected $join = [];
 
     private $connection;
@@ -38,9 +39,14 @@ class Select
         $this->groupBy = $columns;
     }
 
-    public function limit($limit)
+    public function limit(int $limit)
     {
         $this->limit = $limit;
+    }
+
+    public function offset(int $offset)
+    {
+        $this->offset = $offset;
     }
 
     public function join($join)
@@ -108,11 +114,9 @@ class Select
 
     private function prepareLimit()
     {
-        if (empty($this->limit))
-            return "";
+        if (empty($this->limit)) return "";
 
-        $result = is_array($this->limit)? implode(", ", $this->limit): $this->limit;
-        return " LIMIT $result";
+        return " LIMIT " . ($this->offset !== 0? $this->offset . ", ": "") . $this->limit;
     }
 
     private function prepareJoin()
@@ -158,7 +162,6 @@ class Select
     public function execute()
     {
         $sql = $this->createSQL();
-        echo $sql;
         return $this->connection->query($sql);
     }
 }

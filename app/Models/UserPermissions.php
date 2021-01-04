@@ -11,7 +11,8 @@ class UserPermissions
         $data->columns(["n" => "name", "user_permission.updated_at"]);
         $data->orderBy(["desc" => "name"]);
         $data->groupBy(["name"]);
-        $data->limit([1, 2]);
+        $data->limit(2);
+        $data->offset(2);
         $data->join([
             "type" => "cross", 
             "table" => "users", 
