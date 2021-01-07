@@ -1,6 +1,5 @@
 body {
     font-family: Sans-serif;
-    background: silver;
 }
 img {
     margin: 1em;
@@ -39,15 +38,13 @@ nav a:hover {
     font-weight: bold;
     transform: rotate(9deg);
 }
-.permission {
+table {
+    box-shadow: 2px 1px 10px 4px silver;
+    margin: 1em;
+    padding: 0;
+}
+td {
+    border-bottom: thin solid silver;
+    border-right: thin solid #ddd;
     padding: 1em;
-    font-weight: bold;
-}
-.green {
-    background: green;
-    color: white;
-}
-.red {
-    color: red;
-    text-decoration: line-through;
 }
