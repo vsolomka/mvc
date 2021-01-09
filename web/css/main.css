@@ -39,12 +39,30 @@ nav a:hover {
     transform: rotate(9deg);
 }
 table {
-    box-shadow: 2px 1px 10px 4px silver;
+    box-shadow: 3px 3px 7px 2px silver;
     margin: 1em;
-    padding: 0;
+    padding: .5em;
+}
+th {
+    background: grey;
+    color: white;
+    text-align: center;
+    padding: 1em;
+    border-right: thin solid silver;
 }
 td {
-    border-bottom: thin solid silver;
-    border-right: thin solid #ddd;
-    padding: 1em;
+    border: thin solid #ddd;
+    border-top-color: white;
+    border-left-color: white;
+    padding: 1em 1.5em;
+    text-align: right;
+}
+tr:last-child td {
+    border-bottom: 0;
+}
+td:last-child {
+    border-right: 0;
+}
+td:hover {
+    background: #eee;
 }
