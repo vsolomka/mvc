@@ -5,6 +5,7 @@ User Permissions:
 <tr>
 <?php
 // theader
+if (isset($data[0]))
 foreach (array_keys($data[0]) as $field) {
     if (!is_int($field)) {
         echo "<th>$field</th>";
