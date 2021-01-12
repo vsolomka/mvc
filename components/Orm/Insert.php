@@ -43,7 +43,6 @@ class Insert
     public function execute()
     {
         $sql = $this->createSQL();
-        //echo $sql;
         $this->connection->query($sql);
     }
 }
