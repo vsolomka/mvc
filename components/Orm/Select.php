@@ -10,6 +10,8 @@ class Select
     protected $limit = 0;
     protected $offset = 0;
     protected $join = [];
+    protected $where = "";
+    protected $where_type = "";
 
     private $connection;
 
@@ -54,6 +56,12 @@ class Select
         $this->join = $join;
     }
 
+    public function where($condition, $type = "AND")
+    {
+        $this->where = $condition;
+        $this->where_type = $type;
+    }
+
     private function prepareColumns()
     {
         if (is_array($this->columns)) {
@@ -78,6 +86,13 @@ class Select
         } else {
             return $this->tableName;
         }
+    }
+
+    private function prepareWhere()
+    {
+        $where = new Where();
+        $where->where($this->where);
+        return $where->getWhere($this->where_type);
     }
 
     private function prepareOrder()
@@ -154,6 +169,7 @@ class Select
             . " FROM " 
             . $this->prepareTableNames()
             . $this->prepareJoin()
+            . $this->prepareWhere()
             . $this->prepareGroup()
             . $this->prepareOrder()
             . $this->prepareLimit();
@@ -162,6 +178,9 @@ class Select
     public function execute()
     {
         $sql = $this->createSQL();
-        return $this->connection->query($sql)->fetchAll();
+        if ($result = $this->connection->query($sql))
+            return $result->fetchAll();
+        else
+            return [];
     }
 }
