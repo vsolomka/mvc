@@ -22,7 +22,9 @@ class SettingsController extends Controller
     public function add(string $name)
     {
         echo "Adding new permissons level: $name";
-        $this->permissions->add($name);
+        if (!empty($name)) {
+            $this->permissions->add($name);
+        }
     }
 
     public function remove(int $id)

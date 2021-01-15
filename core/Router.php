@@ -38,7 +38,7 @@ class Router
         $classNamespace .= 'Controller';
         
         $classObj = new $classNamespace();
-        var_export(compact("classNamespace", "action", "params"));
+        //var_export(compact("classNamespace", "action", "params"));
         
         if (method_exists($classObj, $action)) {
             $classObj->$action($params);
