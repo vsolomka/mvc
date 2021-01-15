@@ -5,17 +5,29 @@ use App\Models\UserPermissions;
 
 class SettingsController extends Controller
 {
+    private $permissions;
+    public function __construct()
+    {
+        $this->permissions = new UserPermissions();
+    }
     public function process()
     {
-        $obj = new UserPermissions();
-        
-        //$obj->addPermission();
-        //$obj->removePermission();
         //$obj->updatePermission();
         
-        $data = $obj->getPermissions();
+        $data = $this->permissions->get();
         $this->generate('Admin', 'Settings', $data);
 
+    }
 
+    public function add(string $name)
+    {
+        echo "Adding new permissons level: $name";
+        $this->permissions->add($name);
+    }
+
+    public function remove(int $id)
+    {
+        echo "Removing permission [id = $id]";
+        $this->permissions->remove($id);
     }
 }

@@ -7,4 +7,6 @@ return [
     '/admin' => 'Admin\\Index',
     '/admin/actions' => 'Admin\\Actions',
     '/admin/settings' => 'Admin\\Settings',
+    '/admin/settings/add' => 'Admin\\Settings:add',
+    '/admin/settings/remove' => 'Admin\\Settings:remove',
 ];

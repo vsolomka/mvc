@@ -3,36 +3,30 @@ namespace App\Models;
 
 class UserPermissions extends Model
 {
-    public function getPermissions()
+    public function get()
     {
         $data = $this->select();
         $data->from("user_permission");
-        $data->where(["name" => "developer"]);
         return $data->execute();
     }
 
-    public function setPermissions($value)
-    {
-        $this->permissions = $value;
-    }
-
-    public function addPermission()
+    public function add($name)
     {
         $query = $this->insert();
         $query->into("user_permission");
-        $query->values(["name" => "test"]);
+        $query->values(["name" => $name]);
         $query->execute();
     }
 
-    public function removePermission()
+    public function remove($id)
     {
         $query = $this->delete();
         $query->from("user_permission");
-        $query->where(["name" => "developer", "id" => 9]);
+        $query->where(["id" => $id]);
         $query->execute();
     }
 
-    public function updatePermission()
+    public function update()
     {
         $query = $this->update();
         $query->table("user_permission");
