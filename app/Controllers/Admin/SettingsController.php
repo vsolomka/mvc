@@ -7,15 +7,27 @@ class SettingsController extends Controller
 {
     public function process()
     {
-        $obj = new UserPermissions();
+        $permissons = new UserPermissions();
+        //$permissions->updatePermission();
         
-        //$obj->addPermission();
-        //$obj->removePermission();
-        //$obj->updatePermission();
-        
-        $data = $obj->getPermissions();
+        $data = $permissions->get();
         $this->generate('Admin', 'Settings', $data);
 
+    }
 
+    public function add(string $name)
+    {
+        $permissons = new UserPermissions();
+        echo "Adding new permissons level: $name";
+        if (!empty($name)) {
+            $permissions->add($name);
+        }
+    }
+
+    public function remove(int $id)
+    {
+        $permissons = new UserPermissions();
+        echo "Removing permission [id = $id]";
+        $permissions->remove($id);
     }
 }
