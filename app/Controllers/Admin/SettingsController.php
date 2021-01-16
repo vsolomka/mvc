@@ -7,7 +7,7 @@ class SettingsController extends Controller
 {
     public function process()
     {
-        $permissons = new UserPermissions();
+        $permissions = new UserPermissions();
         //$permissions->updatePermission();
         
         $data = $permissions->get();
@@ -17,7 +17,7 @@ class SettingsController extends Controller
 
     public function add(string $name)
     {
-        $permissons = new UserPermissions();
+        $permissions = new UserPermissions();
         echo "Adding new permissons level: $name";
         if (!empty($name)) {
             $permissions->add($name);
@@ -26,7 +26,7 @@ class SettingsController extends Controller
 
     public function remove(int $id)
     {
-        $permissons = new UserPermissions();
+        $permissions = new UserPermissions();
         echo "Removing permission [id = $id]";
         $permissions->remove($id);
     }
