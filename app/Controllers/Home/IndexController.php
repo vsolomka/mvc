@@ -8,7 +8,7 @@ class IndexController extends Controller
     public function process()
     {
         $obj = new Users();
-        $data = $obj->getUser();
+        $data = $obj->getUsers();
         $this->generate('Home', 'Home', $data);
     }
 }

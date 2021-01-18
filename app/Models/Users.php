@@ -1,18 +1,15 @@
 <?php
 namespace App\Models;
 
-class Users
+class Users extends Model
 {
-    private $user = [
-        "firstName" => "Paul",
-        "lastName" => "Mattews",
-    ];
-
-    public function getUser()
+    public function getUsers()
     {
-        return $this->user;
+        $data = $this->select();
+        $data->from("users");
+        return $data->execute();
     }
-    public function setUser($value)
+    public function setUsers($value)
     {
         $this->user = $value;
     }

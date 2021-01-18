@@ -18,19 +18,12 @@ nav ul {
     justify-content: center;
     list-style: none;
 }
-nav li {
-    padding: 0 3em;
-    margin: .5em;
-    background: grey;
-    border-radius: .3em;
-    font-variant: small-caps;
-}
 nav a {
     display: flex;
     padding: 1em;
     text-decoration: none;
     font-weight: bold;
-    color: white;
+    color: grey;
     transition: all .3s;
 }
 nav a:hover {
@@ -38,9 +31,40 @@ nav a:hover {
     font-weight: bold;
     transform: rotate(9deg);
 }
+nav li {
+    padding: 0 3em;
+    margin: .5em;
+    background: grey;
+    border-radius: .3em;
+    font-variant: small-caps;
+}
+nav li a {
+    color: white;
+}
+main {
+    padding: 1em;
+}
+input[type="text"] {
+    padding: .5em;
+    font-size: 1em;
+}
+button {
+    box-sizing: border-box;
+    color: white;
+    font-weight: bold;
+    display: inline-block;
+    padding: .3em .7em;
+    margin: 0 .6em;
+    border: none;
+    border-radius: .2em;
+    transition: all .2s;
+}
+button:hover {
+    transform: translateX(.2em);
+    box-shadow: 0 0 7px 2px grey;
+}
 table {
     box-shadow: 3px 3px 7px 2px silver;
-    margin: 1em;
     padding: .5em;
 }
 th {
@@ -65,4 +89,23 @@ td:last-child {
 }
 td:hover {
     background: #eee;
+}
+.editable {
+    border: none;
+}
+.editable:focus {
+    border: thin solid silver;
+    background-color: #ffe;
+}
+.action {
+    text-decoration: none;
+}
+.update {
+    background-color: green;
+}
+.delete {
+    background-color: red;
+}
+.addnew {
+    background-color: blue;
 }
