@@ -56,6 +56,6 @@ class UserPermissions extends Model
         $query->table("user_permission");
         $query->values(["name" => $name]);
         $query->where(["id" => $id]);
-        $query->execute();
+        return $query->execute();
     }
 }

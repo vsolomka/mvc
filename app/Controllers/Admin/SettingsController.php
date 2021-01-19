@@ -1,6 +1,7 @@
 <?php
 namespace App\Controllers\Admin;
 use App\Controllers\Controller;
+use App\Controllers\Admin\MessageController;
 use App\Models\UserPermissions;
 
 class SettingsController extends Controller
@@ -29,7 +30,12 @@ class SettingsController extends Controller
     public function updateAction()
     {
         $permissions = new UserPermissions();
-        $permissions->set();
-        header("Location: /admin/settings");
+        $result = $permissions->set();
+        $message = new MessageController();
+        if ($result) {
+            $message->success();
+        } else {
+            $message->failure();
+        }
     }
 }

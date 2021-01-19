@@ -3,14 +3,15 @@ namespace App\Models;
 
 class Users extends Model
 {
-    public function getUsers()
+    public function get()
     {
         $data = $this->select();
         $data->from("users");
         return $data->execute();
     }
-    public function setUsers($value)
+
+    public function set($value)
     {
-        $this->user = $value;
+        
     }
 }

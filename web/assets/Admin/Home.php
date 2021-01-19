@@ -2,13 +2,8 @@
 
 <table>
 <?php
-use Components\Orm\Connector;
 
-$db_connector = new Connector("vsolomka_db");
-$db_handler = $db_connector->connect();
-
-$result = $db_handler->query("SELECT * FROM users");
-foreach ($result as $row) {
+foreach ($data as $row) {
     echo "<tr>";
     foreach ($row as $field => $value) {
         if (!is_int($field)) {
