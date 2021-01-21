@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page: <?php echo "$template/$page"; ?></title>
-    <link rel="stylesheet" href="/web/css/main.css?87">
+    <link rel="stylesheet" href="/web/css/main.css">
 </head>
 <body>
 
@@ -16,10 +16,11 @@
     <li><a href="/admin/settings">Settings</a></li>
 </ul>
 </nav>
-
+<main>
 <?php
 require "$template/$page.php";
 ?>
+</main>
 
 </body>
 </html>

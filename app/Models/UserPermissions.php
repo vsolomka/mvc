@@ -10,28 +10,52 @@ class UserPermissions extends Model
         return $data->execute();
     }
 
-    public function add($name)
+    public function add()
     {
+        if (!empty($_POST["name"])) {
+            $name = trim((string) $_POST["name"]);
+        } else {
+            return false;
+        }
+
         $query = $this->insert();
         $query->into("user_permission");
         $query->values(["name" => $name]);
         $query->execute();
     }
 
-    public function remove($id)
+    public function remove()
     {
+        if (!empty($_GET["id"])) {
+            $id = (int) $_GET["id"];
+        } else {
+            return false;
+        }
+
         $query = $this->delete();
         $query->from("user_permission");
         $query->where(["id" => $id]);
         $query->execute();
     }
 
-    public function update()
+    public function set()
     {
+        if (!empty($_POST["name"])) {
+            $name = trim((string) $_POST["name"]);
+        } else {
+            return false;
+        }
+
+        if (!empty($_POST["id"])) {
+            $id = (int) $_POST["id"];
+        } else {
+            return false;
+        }
+
         $query = $this->update();
         $query->table("user_permission");
-        $query->values(["name" => "trainee"]);
-        $query->where(["id" => 10]);
-        $query->execute();
+        $query->values(["name" => $name]);
+        $query->where(["id" => $id]);
+        return $query->execute();
     }
 }

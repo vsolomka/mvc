@@ -1,6 +1,7 @@
 <?php
 namespace App\Controllers\Admin;
 use App\Controllers\Controller;
+use App\Controllers\Admin\MessageController;
 use App\Models\UserPermissions;
 
 class SettingsController extends Controller
@@ -8,26 +9,33 @@ class SettingsController extends Controller
     public function process()
     {
         $permissions = new UserPermissions();
-        //$permissions->updatePermission();
-        
         $data = $permissions->get();
         $this->generate('Admin', 'Settings', $data);
-
     }
 
-    public function add(string $name)
+    public function addAction()
     {
         $permissions = new UserPermissions();
-        echo "Adding new permissons level: $name";
-        if (!empty($name)) {
-            $permissions->add($name);
-        }
+        $permissions->add($name);
+        header("Location: /admin/settings");
     }
 
-    public function remove(int $id)
+    public function removeAction()
     {
         $permissions = new UserPermissions();
-        echo "Removing permission [id = $id]";
         $permissions->remove($id);
+        header("Location: /admin/settings");
+    }
+
+    public function updateAction()
+    {
+        $permissions = new UserPermissions();
+        $result = $permissions->set();
+        $message = new MessageController();
+        if ($result) {
+            $message->success();
+        } else {
+            $message->failure();
+        }
     }
 }

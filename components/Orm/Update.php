@@ -63,6 +63,6 @@ class Update
     public function execute()
     {
         $sql = $this->createSQL();
-        $this->connection->query($sql);
+        return $this->connection->query($sql);
     }
 }
