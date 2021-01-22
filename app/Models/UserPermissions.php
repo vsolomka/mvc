@@ -3,59 +3,41 @@ namespace App\Models;
 
 class UserPermissions extends Model
 {
-    public function get()
+    public function get(int $id = 0)
     {
         $data = $this->select();
         $data->from("user_permission");
+        if ($id > 0) {
+            $data->where(["id" => $id]);
+        }
+
         return $data->execute();
     }
 
-    public function add()
+    public function remove(int $id)
     {
-        if (!empty($_POST["name"])) {
-            $name = trim((string) $_POST["name"]);
-        } else {
-            return false;
-        }
-
-        $query = $this->insert();
-        $query->into("user_permission");
-        $query->values(["name" => $name]);
-        $query->execute();
-    }
-
-    public function remove()
-    {
-        if (!empty($_GET["id"])) {
-            $id = (int) $_GET["id"];
-        } else {
-            return false;
-        }
-
         $query = $this->delete();
         $query->from("user_permission");
         $query->where(["id" => $id]);
-        $query->execute();
+        
+        return $query->execute();
     }
 
-    public function set()
+    public function set($values)
     {
-        if (!empty($_POST["name"])) {
-            $name = trim((string) $_POST["name"]);
+        extract($values);
+        unset($values["id"]);
+
+        if ($id === 0) {
+            $query = $this->insert();
+            $query->into("user_permission");
         } else {
-            return false;
+            $query = $this->update();
+            $query->table("user_permission");
+            $query->where(["id" => $id]);
         }
 
-        if (!empty($_POST["id"])) {
-            $id = (int) $_POST["id"];
-        } else {
-            return false;
-        }
-
-        $query = $this->update();
-        $query->table("user_permission");
-        $query->values(["name" => $name]);
-        $query->where(["id" => $id]);
+        $query->values($values);
         return $query->execute();
     }
 }
