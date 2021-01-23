@@ -11,6 +11,9 @@ img {
 nav {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    border-bottom: thin solid silver;
+    padding: .5em;
 }
 nav ul {
     padding: 0; margin: 0;
@@ -44,28 +47,34 @@ nav li a {
 main {
     padding: 1em;
 }
-input[type="text"] {
+input, select {
     padding: .5em;
     font-size: 1em;
+    border: thin solid silver;
 }
-button {
+input:focus, select:focus {
+    background: #ffe;
+    box-shadow: 0 0 7px 2px silver;
+}
+i.far, i.fas, button {
     box-sizing: border-box;
     color: white;
+    background-color: silver;
     font-weight: bold;
     display: inline-block;
-    padding: .3em .7em;
+    padding: .75em;
     margin: 0 .6em;
     border: none;
-    border-radius: .2em;
+    border-radius: .3em;
     transition: all .2s;
 }
-button:hover {
-    transform: translateX(.2em);
+i.far:hover, i.fas:hover, button:hover {
+    transform: translateX(.1em);
+    background: linear-gradient(135deg, silver, grey 50%, #555 51%);
     box-shadow: 0 0 7px 2px grey;
 }
 table {
     box-shadow: 3px 3px 7px 2px silver;
-    padding: .5em;
 }
 th {
     background: grey;
@@ -78,7 +87,7 @@ td {
     border: thin solid #ddd;
     border-top-color: white;
     border-left-color: white;
-    padding: 1em 1.5em;
+    padding: .5em .8em;
     text-align: right;
 }
 tr:last-child td {
@@ -90,22 +99,21 @@ td:last-child {
 td:hover {
     background: #eee;
 }
-.editable {
-    border: none;
+form {
+    width: 25em;
+    display: flex;
+    flex-direction: column;
 }
-.editable:focus {
-    border: thin solid silver;
-    background-color: #ffe;
+form > * {
+    margin-top: .7em;
 }
-.action {
-    text-decoration: none;
+.message {
+    color: white;
+    padding: 1em;
 }
-.update {
+.message.success {
     background-color: green;
 }
-.delete {
+.message.failure {
     background-color: red;
-}
-.addnew {
-    background-color: blue;
 }
